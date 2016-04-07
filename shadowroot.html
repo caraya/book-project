@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM demo</title>
+  </head>
+  <body>
+  <style>
+    button {
+      font-size: 2em;
+      font-family: cursive;
+    }
+  </style>
+
+  <button>I'm a regular button</button>
+  <div id='shadowElem'>
+    &nbsp;
+  </div>
+  <div id='shadowElem2'></div>
+  <button>I'm a regular button</button>
+
+  <script>
+    var host = document.querySelector('#shadowElem');
+    var root = host.createShadowRoot();
+    root.innerHTML = '<style>button { font-size: 4em; color: rebeccapurple; }</style>'
+      + '<button>I\'m a shadow button</button>'
+      + '<button>I am another shadow button</button>';
+
+    var host2 = document.querySelector('#shadowElem2');
+    var root2 = host2.createShadowRoot();
+    root2.innerHTML = '<style>::content button { font-size: 2em; color: #f00; } </style>'
+      + '<button>I\'m a shadow button</button>'
+      + '<button>I\'m another shadow button</button>'
+
+  </script>
+  </body>
+</html>

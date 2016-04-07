@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Demo</title>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <style>
+      #host {
+        --button-text-color: green;
+        --button-font: "Comic Sans MS", "Comic Sans", cursive;
+      }
+    </style>
+
+    <div id="host">Host node</div>
+      <script>
+        var host = document.querySelector('#host');
+        var root = host.createShadowRoot();
+        root.innerHTML = '<style> '
+          + 'button { color: var(--button-text-color, pink); '
+          + 'font-family: var(--button-font); } </style> '
+          + '<content></content>';
+      </script>
+  </body>
+</html>

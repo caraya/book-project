@@ -1,0 +1,31 @@
+<body>
+<style>
+  button {
+    font-size: 2em;
+    font-family: cursive;
+  }
+</style>
+
+<button>I'm a regular button for reference</button>
+<div id='shadowElem'></div>
+<div id='shadowElem2'></div>
+
+<script>
+  var host = document.querySelector('#shadowElem');
+  var root = host.createShadowRoot();
+  root.innerHTML = '<style>'
+    + ' div { border 1px dotted red; }'
+    + ' button { font-size: 4em; color: rebeccapurple; }'
+    + '</style>'
+    + '<div> <button>I\'m a shadow button</button>'
+    + '<button>I am another shadow button</button> </div>'
+
+  var host2 = document.querySelector('#shadowElem2');
+  var root2 = host2.createShadowRoot();
+  root2.innerHTML = '<style>'
+    + ' button { font-size: 2em; color: #ccc; }'
+    + '</style>'
+    + '<button>I\'m a shadow button</button> <br>'
+    + '<button>I am another shadow button</button>'
+</script>
+</body>
